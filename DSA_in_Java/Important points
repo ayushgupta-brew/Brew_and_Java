@@ -1,0 +1,13 @@
+1. Stable Sort:
+Jisme equal elements ka relative order maintain rehta hai.
+Example: Bubble Sort, Insertion Sort.
+Use case: Jab duplicate data ke order ka meaning ho (e.g. DB records).
+
+-------------------------------------------------------------------------------------
+
+2. Unstable Sort:
+Jisme equal elements ka relative order change ho sakta hai.
+Example: Selection Sort, Quick Sort.
+Use case: Jab sirf sorting important ho, order preserve karna zaroori na ho.
+
+--------------------------------------------------------------------------------------

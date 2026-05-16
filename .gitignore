@@ -1,0 +1,12 @@
+# Ignore all class files
+*.class
+
+# Ignore compiled binaries/executables
+*.out
+
+# IntelliJ IDEA
+*.iml
+.idea/
+
+# Ignore object files
+*.o
