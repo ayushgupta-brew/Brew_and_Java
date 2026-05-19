@@ -1,5 +1,8 @@
 package Collections_Framework;
 
+//Comparable is used when a class wants to define its default sorting order inside itself using compareTo().
+//Comparator is used when you want to create custom or multiple sorting ways outside the class using compare().
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
