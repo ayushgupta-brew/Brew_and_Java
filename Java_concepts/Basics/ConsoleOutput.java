@@ -2,7 +2,7 @@ package Basics;
 
 public class ConsoleOutput {
     public static void main(String[] args) {
-        // TODO: Implement the necessary code to demonstrate console output
+
         int number = 42;
         double price = 12.99;
         boolean isAvailable = true;
