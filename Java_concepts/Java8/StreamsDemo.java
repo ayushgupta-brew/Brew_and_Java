@@ -1,5 +1,8 @@
 package Java8;
 
+// Stream API is a feature in Java used to process collections of data easily, like filtering, sorting, and transforming data.
+// It helps write cleaner and shorter code without using many loops.
+
 import java.util.Arrays;
 import java.util.List;
 import java.util.function.Consumer;
