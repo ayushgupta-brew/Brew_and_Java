@@ -1,5 +1,8 @@
 package Basics;
 
+//Literal in programming means a value written directly in the code, like a number, word, or true/false.
+//Example: 10, "Hello", and true are literals.
+
 public class Literals {
     public static void main(String[] args) {
         // literals
