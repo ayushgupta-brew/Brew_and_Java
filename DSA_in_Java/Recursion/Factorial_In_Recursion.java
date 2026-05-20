@@ -6,7 +6,7 @@ public class Factorial_In_Recursion {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the number for the Fibonacci series");
+        System.out.println("Enter the number for Factorial");
         int n = sc.nextInt();
 
         // storing the static method to an int variable because the function is returning an int value
