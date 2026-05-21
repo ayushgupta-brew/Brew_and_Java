@@ -11,8 +11,10 @@ public class Sum_In_recursion {
     }
     public static int sum(int n){
 
+        // base case for sum + 0 = sum
         if(n == 0) return 0;
 
+        // recursive case to add the numbers
         return n + sum(n-1);
     }
 }
