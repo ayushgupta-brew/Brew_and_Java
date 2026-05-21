@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.Queue;
 import java.util.Stack;
 
-public class Reverese_Queue {
+public class Reveres_Queue {
     public static void main(String[] args) {
 
         Queue<Integer> q = new LinkedList<>();
