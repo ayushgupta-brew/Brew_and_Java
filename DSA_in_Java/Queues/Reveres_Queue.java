@@ -15,12 +15,15 @@ public class Reveres_Queue {
     }
     public static void reverseQueue(Queue<Integer> q){
 
+        // Stack is used because it follows LIFO
         Stack<Integer> st = new Stack<>();
 
+        // Move all queue elements into stack
         while(!q.isEmpty()){
             st.push(q.poll());
         }
 
+        // Add elements back to queue in reversed order
         while(!st.isEmpty()){
             q.add(st.pop());
         }
