@@ -1,23 +1,48 @@
 package Sorting;
 
-public class Bubble_Sort {
-    public static void main(String[] args){
-        int[] arr = {10 , 50 , 200 , 40 , 5};
+import java.util.Scanner;
+import java.util.Arrays;
 
-        for(int i = 0 ; i< arr.length ; i++){
-            for(int j = 0 ; j< arr.length - 1 - i; j++){
-                if(arr[j] > arr[j+1]) {
-                    int temp = arr[j];
-                    arr[j] = arr[j + 1];
-                    arr[j + 1] = temp;
-                }
-            }
+public class Bubble_Sort {
+    public static void main() {
+
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println("Enter the size for an array");
+        int size = sc.nextInt();
+
+        int[] array = new int[size];
+
+        System.out.println("Enter elements for an array");
+        for (int i = 0; i < size; i++) {
+            array[i] = sc.nextInt();
         }
-        for(int k: arr){
-            System.out.print(k + " ");
+
+        bubbleSort(array);
+        System.out.println("Sorted Array: " + Arrays.toString(array));
+    }
+
+
+public static void bubbleSort(int[] array) {
+
+    int len = array.length;
+
+    for (int i = 0; i < len; i++) {
+        for (int j = 0; j < len - 1 - i; j++) {
+            if (array[j] > array[j + 1]) {
+                swap(array, j, j + 1);
+            }
         }
     }
 }
+
+public static void swap(int[] array, int index1, int index2) {
+    int temp = array[index1];
+    array[index1] = array[index2];
+    array[index2] = temp;
+}
+}
+
 
 /*
  Bubble Sort:
