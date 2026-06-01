@@ -1,4 +1,4 @@
-public class SlidingWindow_Vs_Kadanes {
+public class SlidingWindow_Vs_Kadanes_Template {
 
     public static void main(String[] args) {
 
