@@ -17,12 +17,12 @@ public class Single_Number {
     }
 
     /**
-     Finds the element that appears only once using a HashMap.
-
-     Use HashMap if only positive integers are given in an array.
-
-      Time Complexity: O(n)
-      Space Complexity: O(n)
+     * Finds the element that appears only once using a HashMap.
+     * <p>
+     * Use HashMap if only positive integers are given in an array.
+     * <p>
+     * Time Complexity: O(n)
+     * Space Complexity: O(n)
      */
     public static int usingHashMap(int[] array) {
 
@@ -46,16 +46,16 @@ public class Single_Number {
     }
 
     /**
-      Finds the element that appears only once using XOR.
-
-      XOR Properties:
-      a ^ a = 0
-      a ^ 0 = a
-      Duplicate elements cancel each other out,
-      leaving only the unique element.
-
-      Time Complexity: O(n)
-      Space Complexity: O(1)
+     * Finds the element that appears only once using XOR.
+     * <p>
+     * XOR Properties:
+     * a ^ a = 0
+     * a ^ 0 = a
+     * Duplicate elements cancel each other out,
+     * leaving only the unique element.
+     * <p>
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
      */
     public static int usingXor(int[] array) {
 
@@ -70,3 +70,4 @@ public class Single_Number {
         // Remaining value is the single occurring number
         return xor;
     }
+}
