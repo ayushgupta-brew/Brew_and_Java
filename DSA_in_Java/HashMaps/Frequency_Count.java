@@ -9,8 +9,10 @@ public class Frequency_Count {
 
         Scanner sc = new Scanner(System.in);
 
-//        System.out.println("Enter the string word");
-//        String word = sc.nextLine();
+/*
+        System.out.println("Enter the string word");
+        String word = sc.nextLine();
+*/
 
         System.out.println("Enter the string sentence") ;
         String sentence = sc.nextLine();
