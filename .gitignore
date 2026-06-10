@@ -2,7 +2,7 @@
 *.class
 
 # Ignore compiled binaries/executables
-*.out
+*out/
 
 # IntelliJ IDEA
 *.iml
