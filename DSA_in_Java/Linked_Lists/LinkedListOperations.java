@@ -1,6 +1,6 @@
 package Linked_Lists;
 
-class LLoperations {
+class LinkedListOperations {
     private Node head;
     private int size;
 
