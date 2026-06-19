@@ -11,6 +11,8 @@ public interface LinkedListOperations {
     public void deleteAtFront();
     public void deleteAtBack();
     public void deleteAtPosition(int position);
+    public boolean searchByData(int data);
+    public void reverseList();
     public int getSize();
     public void printList();
 }
