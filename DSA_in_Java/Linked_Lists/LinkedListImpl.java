@@ -114,6 +114,37 @@ public class LinkedListImpl implements LinkedListOperations {
     }
 
     @Override
+    public boolean searchByData(int data) {
+        if(head == null){
+            throw new IllegalStateException("List is empty");
+        }
+        Node current = head;
+        while(current != null){
+            if(current.data == data) {
+                return true;
+            }
+            current = current.next;
+        }
+        return false;
+    }
+
+    @Override
+    public void reverseList() {
+        if(head == null){
+            return;
+        }
+        Node current = head, prev = null, front;
+
+        while(current != null){
+            front = current.next;
+            current.next = prev;
+            prev = current;
+            current = front;
+        }
+        head = prev;
+    }
+
+    @Override
     public int getSize(){
         return size;
     }
