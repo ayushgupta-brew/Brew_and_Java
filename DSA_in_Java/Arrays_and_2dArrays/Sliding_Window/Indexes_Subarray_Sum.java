@@ -1,4 +1,4 @@
-package Arrays_and_2dArrays.Prefix_Sum;
+package Arrays_and_2dArrays.Sliding_Window;
 // Sliding Window Technique used
 
 import java.util.Arrays;
