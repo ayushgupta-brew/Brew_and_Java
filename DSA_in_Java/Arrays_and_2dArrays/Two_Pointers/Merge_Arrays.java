@@ -1,4 +1,4 @@
-package Arrays_and_2dArrays.One_D_Array;
+package Arrays_and_2dArrays.Two_Pointers;
 
 
 import java.util.Arrays;
