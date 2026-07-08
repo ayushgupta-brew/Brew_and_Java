@@ -1,51 +1,44 @@
 package Arrays_and_2dArrays.Two_Pointers;
 
-import java.util.Arrays;
-import java.util.Scanner;
-
 public class Move_Zeros_toEnd {
+
     public static void main(String[] args) {
 
-        // Scanner for command line terminal input
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Enter the size of array");
-        int size = sc.nextInt();
+        int[] array = {1, 2, 0, 4, 3, 0, 5, 0};
 
-        int[] array = new int[size];
-
-        System.out.println("Enter the elements");
-        for(int i = 0 ; i < size; i++){
-            array[i] = sc.nextInt();
-        }
-
-        // to print the modified array using Arrays.toString() method
         moveZeroToEnd(array);
-        System.out.println(Arrays.toString(array));
 
-        // for garbage collection
-        sc.close();
-
+        for (int num : array) {
+            System.out.print(num + " ");
+        }
     }
 
-    // static function to move zero to end using two pointer swap approach
-    public static void moveZeroToEnd(int[] array){
+    // Moves all zeros to the end while maintaining the relative order
+    // of non-zero elements using the two-pointer technique.
+    public static void moveZeroToEnd(int[] array) {
 
+        // Points to the position where the next non-zero element
+        // should be placed.
         int insertPos = 0;
 
-        for (int i = 0 ; i < array.length ; i++) {
-            if (array[i] != 0) {
+        // Traverse the array using the right pointer.
+        for (int right = 0; right < array.length; right++) {
 
-                // swap function to swap the non zero element and insert it to the correct position
-                swap(array , insertPos, i);
+            // If a non-zero element is found,
+            // swap it with the element at insertPos.
+            if (array[right] != 0) {
 
-                // incrementing insertPos to update the pos of the swap o and non zero element
+                swap(array, insertPos, right);
+
+                // Move insertPos to the next position.
                 insertPos++;
             }
         }
     }
 
-    // static swap function
+    // Swaps two elements in the array.
     public static void swap(int[] array, int index1, int index2) {
+
         int temp = array[index1];
         array[index1] = array[index2];
         array[index2] = temp;
