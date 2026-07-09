@@ -7,7 +7,7 @@ public class Three_Sum {
     static void main(String[] args) {
         int[] array = {-1, 0, 1, 2, -1, -4};
 
-        List<List<Integer>> lists = solution3(array);
+        List<List<Integer>> lists = solution2(array);
         System.out.println(lists);
     }
 
@@ -32,8 +32,8 @@ public class Three_Sum {
         for (int i = 0; i < nums.length - 2; i++) {
             for (int j = i + 1; j < nums.length - 1; j++) {
                 for (int k = j + 1; k < nums.length; k++) {
-
-                    if (nums[i] + nums[j] + nums[k] == 0) {
+                    int sum = nums[i] + nums[j] + nums[k];
+                    if (sum == 0) {
 
                         // Sort so that [-1,0,1] and [1,-1,0]
                         // become identical before inserting.
@@ -71,9 +71,9 @@ public class Three_Sum {
     // ------------------------------------------------------------
     public static List<List<Integer>> solution2(int[] nums) {
 
-        Set<List<Integer>> set = new HashSet<>();
+        Set<List<Integer>> ans = new HashSet<>();
 
-        for (int i = 0; i < nums.length; i++) {
+        for (int i = 0; i < nums.length - 1; i++) {
 
             Set<Integer> seen = new HashSet<>();
 
@@ -88,14 +88,14 @@ public class Three_Sum {
                     List<Integer> temp = Arrays.asList(nums[i], nums[j], k);
                     Collections.sort(temp);
 
-                    set.add(temp);
+                    ans.add(temp);
                 }
 
                 seen.add(nums[j]);
             }
         }
 
-        return new ArrayList<>(set);
+        return new ArrayList<>(ans);
     }
 
     // ------------------------------------------------------------
