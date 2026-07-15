@@ -4,27 +4,27 @@
 
 If the question contains:
 
-* ✅ Subarray (contiguous)
-* ✅ Range Sum
-* ✅ Sum = K
-* ✅ Sum Divisible by K
-* ✅ Count of Subarrays
-* ✅ Longest/Shortest Subarray
-* ✅ Continuous Segment
+- ✅ Subarray (contiguous)
+- ✅ Range Sum
+- ✅ Sum = K
+- ✅ Sum Divisible by K
+- ✅ Count of Subarrays
+- ✅ Longest/Shortest Subarray
+- ✅ Continuous Segment
 
-**Keyword:** Contiguous ⇒ Think **Prefix Sum**
+> **Keyword:** Contiguous → Think **Prefix Sum**
 
 ---
 
 # 2. Core Formula
 
-```
+```text
 prefix[i] = nums[0] + nums[1] + ... + nums[i]
 ```
 
 Subarray Sum:
 
-```
+```text
 sum(l, r) = prefix[r] - prefix[l-1]
 ```
 
@@ -36,7 +36,7 @@ Everything in Prefix Sum is built on this formula.
 
 Every problem follows this flow:
 
-```
+```text
 Current Prefix Sum
         ↓
 Apply required condition
@@ -54,39 +54,40 @@ Use it to answer in O(1)
 
 ### Condition
 
-```
+```text
 prefix[r] - prefix[l-1] = k
 ```
 
 Rearrange:
 
-```
+```text
 prefix[l-1] = prefix[r] - k
 ```
 
 ### Store
 
-```
+```text
 Prefix Sum
 ```
 
 ### HashMap
 
-```
+```text
 Key   = Prefix Sum
 Value = Frequency
 ```
 
 ### Code Logic
 
-```java
+java
+```
 count += map.getOrDefault(prefixSum - k, 0);
 map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
 ```
 
-### Remember
+### Memory Trick
 
-> Exact Sum ⇒ Store Prefix Sum
+> **Exact Sum → Store Prefix Sum**
 
 ---
 
@@ -94,32 +95,32 @@ map.put(prefixSum, map.getOrDefault(prefixSum, 0) + 1);
 
 ### Condition
 
-```
+```text
 (prefix2 - prefix1) % k == 0
 ```
 
-Which becomes
+Equivalent to
 
-```
+```text
 prefix2 % k == prefix1 % k
 ```
 
 ### Store
 
-```
+```text
 Prefix Sum % k
 ```
 
 ### HashMap
 
-```
+```text
 Key   = Remainder
 Value = Frequency
 ```
 
 ### Code Logic
-
-```java
+java
+```
 int rem = ((prefixSum % k) + k) % k;
 
 count += map.getOrDefault(rem, 0);
@@ -127,9 +128,9 @@ count += map.getOrDefault(rem, 0);
 map.put(rem, map.getOrDefault(rem, 0) + 1);
 ```
 
-### Remember
+### Memory Trick
 
-> Same Remainder ⇒ Sum Divisible by K
+> **Same Remainder → Sum Divisible by K**
 
 ---
 
@@ -137,16 +138,16 @@ map.put(rem, map.getOrDefault(rem, 0) + 1);
 
 ### Store
 
-First occurrence only
+First occurrence only.
 
-```
+```text
 Key   = Prefix Sum / Remainder
 Value = First Index
 ```
 
 ### Why?
 
-Earliest index gives maximum length.
+The earliest index gives the maximum possible subarray length.
 
 ---
 
@@ -154,37 +155,38 @@ Earliest index gives maximum length.
 
 Need only:
 
-```
+```text
 Have I seen this before?
 ```
 
-Return immediately when found.
+Return immediately when the condition is satisfied.
 
 ---
 
 # 8. Which HashMap Should I Use?
 
-| Problem                  | Store            | Value       |
-| ------------------------ | ---------------- | ----------- |
-| Sum = K (Count)          | Prefix Sum       | Frequency   |
-| Sum = K (Longest)        | Prefix Sum       | First Index |
-| Divisible by K (Count)   | Remainder        | Frequency   |
-| Divisible by K (Longest) | Remainder        | First Index |
-| Exists?                  | Prefix/Remainder | Presence    |
+| Problem | Store | Value |
+|---------|-------|-------|
+| Sum = K (Count) | Prefix Sum | Frequency |
+| Sum = K (Longest) | Prefix Sum | First Index |
+| Divisible by K (Count) | Remainder | Frequency |
+| Divisible by K (Longest) | Remainder | First Index |
+| Exists? | Prefix / Remainder | Presence |
 
 ---
 
 # 9. The Most Important Initializations
 
-### Count Problems
+## Count Problems
 
-```java
+java
+```
 map.put(0, 1);
 ```
 
 Meaning:
 
-```
+```text
 Empty Prefix Sum = 0
 Occurred Once
 ```
@@ -193,17 +195,18 @@ This counts subarrays starting from index **0**.
 
 ---
 
-### Longest Problems
+## Longest Problems
 
-Usually
+Usually:
 
-```java
+java
+```
 map.put(0, -1);
 ```
 
-Meaning
+Meaning:
 
-```
+```text
 Empty Prefix exists before array starts.
 ```
 
@@ -211,31 +214,31 @@ Empty Prefix exists before array starts.
 
 # 10. Negative Numbers
 
-Java gives
+Java gives:
 
-```
+```text
 -2 % 5 = -2
 ```
 
-We need
+We need:
 
-```
+```text
 3
 ```
 
-Use
+Use:
 
 ```java
 int rem = ((prefixSum % k) + k) % k;
 ```
 
-Never forget this for modulo problems.
+Never forget this for modulo-based problems.
 
 ---
 
 # 11. Prefix Sum Mental Flow
 
-```
+```text
 Current Number
       ↓
 Update Prefix Sum
@@ -255,7 +258,7 @@ Store Current State
 
 # 12. Decision Tree
 
-```
+```text
 Question about Subarray?
           │
           ▼
@@ -291,35 +294,35 @@ Need Exists?
 
 # 13. Interview Pattern Recognition
 
-| Question Says    | Think         |
-| ---------------- | ------------- |
-| Sum = K          | Prefix Sum    |
-| Count Subarrays  | Frequency Map |
-| Longest Subarray | First Index   |
-| Divisible by K   | Remainder     |
-| Contiguous       | Prefix Sum    |
-| Range Sum        | Prefix Sum    |
-| Running Sum      | Prefix Sum    |
+| Question Says | Think |
+|---------------|-------|
+| Sum = K | Prefix Sum |
+| Count Subarrays | Frequency Map |
+| Longest Subarray | First Index |
+| Divisible by K | Remainder |
+| Contiguous | Prefix Sum |
+| Range Sum | Prefix Sum |
+| Running Sum | Prefix Sum |
 
 ---
 
 # 14. Common Mistakes
 
-❌ Forget `map.put(0,1)`
+❌ Forget `map.put(0, 1)`
 
 ❌ Forget negative remainder handling
 
 ❌ Store frequency instead of first index (or vice versa)
 
-❌ Update map before checking (problem dependent)
+❌ Update the map before checking (problem dependent)
 
-❌ Forget that subarray uses **difference of prefix sums**
+❌ Forget that a subarray is the **difference of two prefix sums**
 
 ---
 
 # 15. 30-Second Interview Summary
 
-```
+```text
 Subarray Sum
 
 ↓
@@ -353,7 +356,7 @@ Presence → Exists
 
 # 16. Ultimate Memory Trick
 
-```
+```text
 EXACT SUM
 ----------
 Need Difference
@@ -390,3 +393,4 @@ Presence
 SUBARRAY
 ---------
 Think Prefix Sum First.
+```
