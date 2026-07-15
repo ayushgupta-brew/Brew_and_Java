@@ -60,76 +60,62 @@ public class Continuous_Subarray_Sum {
     }
 
     /**
-     * ---------------- Prefix Sum + HashMap ----------------
+     * Prefix Sum + HashMap
      *
-     * Core Observation:
+     * Idea:
      * If two prefix sums have the same remainder when divided by k,
-     * then the subarray between them has a sum divisible by k.
+     * then the elements between those two prefix sums form a subarray
+     * whose sum is divisible by k.
      *
-     * Mathematical Proof:
+     * Why?
+     * prefixSum[j] % k == prefixSum[i] % k
+     * => (prefixSum[j] - prefixSum[i]) % k == 0
+     * => sum of subarray (i + 1 to j) is divisible by k
      *
-     * prefixSum1 % k == prefixSum2 % k
+     * We store the first index where each remainder appears,
+     * because the earliest index gives the longest possible subarray.
      *
-     * =>
-     * (prefixSum2 - prefixSum1) % k == 0
-     *
-     * =>
-     * Sum of elements between the two indices is divisible by k.
-     *
-     * Why store only the first occurrence?
-     * Because the earliest index gives the maximum possible subarray length,
-     * making it easier to satisfy the minimum length requirement.
-     *
-     * Time Complexity : O(n)
+     * Time Complexity: O(n)
      * Space Complexity: O(n)
      */
     public static boolean solution2(int[] nums, int k) {
 
-        // Stores:
-        // Key   -> remainder of prefix sum
-        // Value -> first index where this remainder occurred
+        // remainder -> first index where this remainder was seen
         Map<Integer, Integer> map = new HashMap<>();
 
-        // Assume remainder 0 exists before the array starts.
-        // This helps detect valid subarrays starting from index 0.
+        // Remainder 0 is considered seen before the array starts.
+        // This helps detect subarrays starting from index 0.
         map.put(0, -1);
 
         int prefixSum = 0;
 
         for (int i = 0; i < nums.length; i++) {
 
-            // Running sum from index 0 to i
+            // Add current element to running sum
             prefixSum += nums[i];
 
-            // Current remainder
+            // Find current remainder
             int remainder = prefixSum % k;
 
-            // Same remainder seen before?
+            // If this remainder was seen before,
+            // the subarray between the previous index and current index
+            // has a sum divisible by k.
             if (map.containsKey(remainder)) {
 
-                /*
-                 * Previous Index ---- Current Index
-                 *        |                  |
-                 *        v                  v
-                 *
-                 * prefixSum(prev) % k == prefixSum(curr) % k
-                 *
-                 * Therefore,
-                 * Sum(prev+1 ... curr) is divisible by k.
-                 */
+                int prevIndex = map.get(remainder);
 
-                // Subarray length must be at least 2
-                if (i - map.get(remainder) >= 2) {
+                // Ensure subarray length is at least 2
+                if (i - prevIndex >= 2) {
                     return true;
                 }
 
             } else {
-
-                // Store only the first occurrence.
-                // Keeping the earliest index maximizes subarray length.
+                // Store only the first time this remainder appears
+                // so we can get the longest possible subarray later
                 map.put(remainder, i);
             }
         }
+
         return false;
     }
 }
