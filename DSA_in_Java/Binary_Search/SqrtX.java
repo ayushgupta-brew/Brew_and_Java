@@ -62,7 +62,7 @@ public class SqrtX {
         // Binary search on the answer space
         while (left <= right) {
 
-            // Safe mid calculation to avoid overflow
+            // Safe mid-calculation to avoid overflow
             long mid = left + (right - left) / 2;
 
             // Use long to avoid overflow when mid * mid becomes large
