@@ -1,4 +1,4 @@
-package Arrays_and_2dArrays.Binary_Search;
+package Binary_Search;
 
 public class Classic_Binary_Search {
     public static void main(String[] args){
