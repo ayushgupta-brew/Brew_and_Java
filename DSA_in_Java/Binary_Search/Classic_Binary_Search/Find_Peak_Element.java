@@ -1,4 +1,4 @@
-package Binary_Search;
+package Binary_Search.Classic_Binary_Search;
 
 public class Find_Peak_Element {
     public static void main(String[] args) {
