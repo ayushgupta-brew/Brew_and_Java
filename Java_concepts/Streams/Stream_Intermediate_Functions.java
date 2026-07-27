@@ -4,7 +4,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class StreamExperiment {
+public class Stream_Intermediate_Functions {
 
     public static void main(String[] args) {
 
@@ -16,6 +16,9 @@ public class StreamExperiment {
         List<Integer> evenNumbers = numbers.stream()
                 .filter(num -> num % 2 == 0)
                 .toList();
+        
+                  // we can use .collect method also to collect the data
+//                .collect(Collectors.toList());
         System.out.println("filter() -> " + evenNumbers);
 
         // 2) map()
