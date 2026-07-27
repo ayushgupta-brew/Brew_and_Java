@@ -11,7 +11,7 @@ public class First_Bad_Version {
         System.out.println("First Bad Version : " + optimalApproach(n));
     }
 
-    /**
+    /*
      * Optimal Approach (Binary Search)
      *
      * Time Complexity  : O(log n)
@@ -62,7 +62,7 @@ public class First_Bad_Version {
              * Case 2:
              * mid is good.
              *
-             * Therefore the first bad version must be after mid.
+             * Therefore, the first bad version must be after mid.
              *
              * We safely discard mid.
              */
