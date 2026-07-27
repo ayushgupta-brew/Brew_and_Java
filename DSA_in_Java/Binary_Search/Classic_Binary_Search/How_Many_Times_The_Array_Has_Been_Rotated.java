@@ -8,7 +8,7 @@ package Binary_Search.Classic_Binary_Search;
  * [4, 5, 6, 7, 0, 1, 2, 3] -> rotated 4 times
  * The rotation count is the index of the smallest element.
  */
-public class HowManyTimesTheArrayHasBeenRotated {
+public class How_Many_Times_The_Array_Has_Been_Rotated {
 
     public static void main(String[] args) {
         int[] nums = {4, 5, 6, 7, 0, 1, 2, 3};
