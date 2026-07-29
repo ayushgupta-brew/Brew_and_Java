@@ -16,7 +16,7 @@ public class Stream_Intermediate_Functions {
         List<Integer> evenNumbers = numbers.stream()
                 .filter(num -> num % 2 == 0)
                 .toList();
-        
+
                   // we can use .collect method also to collect the data
 //                .collect(Collectors.toList());
         System.out.println("filter() -> " + evenNumbers);
