@@ -1,40 +1,54 @@
-package OOPS_concept;
+package Java8;
 
-// One method or function in interface is called functional interface or SAM (Single Abstract Method)
-
-// we use -> this to show lambda expression
-
-// we can directly write variable i in lambda expression without any () .
-
+/*
+    A functional interface has exactly one abstract method.
+    That one method is the "target" for the lambda expression.
+*/
 @FunctionalInterface
-interface Ayush{
+interface Ayush {
     void show(int i);
 }
-
-//class a3 implements Ayush{
-//    @Override
-//    public void show() {
-//        System.out.println("In show");
-//    }
-//}
 
 public class FunctionalInterfaceDemo {
     public static void main(String[] args) {
 
-        // Using Anonymous Class
-        Ayush obj1 = new Ayush(){
+        /*
+            Old way: Anonymous class
+            We are manually creating an object and writing the method body.
+        */
+        Ayush obj1 = new Ayush() {
             @Override
             public void show(int i) {
-                System.out.println("In anonymous show " + i);
+                System.out.println("Anonymous class: " + i);
             }
         };
 
-        // Using Lambda function
-        Ayush obj = (i) -> System.out.println("In lambda show " + i);
-        Ayush obj2 = i -> System.out.println("In lambda show " + i);
+        /*
+            New way: Lambda expression
+            This is the same thing, but shorter.
 
+            Think of it like this:
+            show(int i)  --->  System.out.println("Lambda: " + i)
+
+            Java already knows:
+            - interface name: Ayush
+            - method name: show
+            - parameter type: int
+        */
+        Ayush obj2 = (i) -> {
+            System.out.println("Lambda expression: " + i);
+        };
+
+        /*
+            If there is only one parameter, parentheses can be removed.
+        */
+        Ayush obj3 = i -> System.out.println("Short lambda: " + i);
+
+        /*
+            Calling the method
+        */
         obj1.show(5);
-        obj.show(5);
-
+        obj2.show(10);
+        obj3.show(15);
     }
 }
