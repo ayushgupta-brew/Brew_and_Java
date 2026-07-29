@@ -1,4 +1,4 @@
-package Binary_Search.Classic_Binary_Search;
+package Binary_Search.BS_on_Answer;
 
 public class SqrtX {
     public static void main(String[] args) {
