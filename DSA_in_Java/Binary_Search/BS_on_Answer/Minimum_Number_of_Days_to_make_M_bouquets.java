@@ -65,7 +65,7 @@ public class Minimum_Number_of_Days_to_make_M_bouquets {
      *
      * Time Complexity:
      * O(n * log(maxDay - minDay + 1))
-     * - Binary search runs for log(maxDay - minDay + 1) iterations. Means range between max and min day and then +1 for 1 based index
+     * - Binary search runs for log(maxDay - minDay + 1) iterations.
      * - Each iteration scans the array once.
      *
      * Space Complexity:
@@ -127,24 +127,88 @@ public class Minimum_Number_of_Days_to_make_M_bouquets {
      * O(1)
      */
     private static boolean isPossible(int[] bloomDay, int day, int m, int k) {
+
+        // Number of bouquets we have successfully made.
         int bouquet = 0;
+
+        // Counts consecutive flowers that have bloomed by the given day.
         int count = 0;
 
+        // Traverse every flower in the garden.
         for (int bloom : bloomDay) {
+
+            // Flower has bloomed on or before the current day.
             if (bloom <= day) {
+
+                // Increase the consecutive bloomed flower count.
                 count++;
 
-                // One bouquet is ready.
+                // If we have collected exactly k consecutive flowers,
+                // we can make one bouquet.
                 if (count == k) {
                     bouquet++;
+
+                    // Reset count because these flowers are already used.
+                    // A flower cannot belong to more than one bouquet.
                     count = 0;
                 }
+
             } else {
-                // Break in consecutive flowers.
+
+                // Flower has not bloomed yet.
+                // This breaks the consecutive sequence.
+                // Any incomplete group cannot be used further.
                 count = 0;
             }
         }
 
+        // If we can make at least m bouquets,
+        // then this day is a valid answer.
         return bouquet >= m;
+
+
+        /*
+         * ---------------- Alternative Approach ----------------
+         *
+         * Instead of creating a bouquet immediately after finding k flowers,
+         * we count the length of every consecutive bloomed segment.
+         *
+         * Example:
+         * Segment = [Bloomed, Bloomed, Bloomed, Bloomed, Bloomed]
+         * count = 5, k = 2
+         *
+         * Number of bouquets from this segment = count / k = 5 / 2 = 2
+         */
+
+    /*
+    int bouquet = 0;
+    int count = 0;
+
+    for (int bloom : bloomDay) {
+
+        if (bloom <= day) {
+
+            // Continue the consecutive bloomed segment.
+            count++;
+
+        } else {
+
+            // End of a consecutive segment.
+            // Convert this segment into as many bouquets as possible. (Count of the bloom segment / k number of adjacent flower)
+            bouquet += count / k;
+
+            // Start counting the next segment.
+            count = 0;
+        }
+    }
+
+    // Process the final consecutive segment
+    // because the loop may end without encountering
+    // an unbloomed flower.
+    bouquet += count / k;
+
+    // Check if enough bouquets can be formed.
+    return bouquet >= m;
+    */
     }
 }
