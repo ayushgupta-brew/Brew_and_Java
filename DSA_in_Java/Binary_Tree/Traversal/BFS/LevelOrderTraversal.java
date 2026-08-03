@@ -61,7 +61,7 @@ public class LevelOrderTraversal {
         Queue<TreeNode> queue = new ArrayDeque<>();
 
         // Start traversal from the root
-        queue.offer(root);
+        queue.add(root);
 
         // Continue until all nodes are processed
         while (!queue.isEmpty()) {
@@ -83,11 +83,11 @@ public class LevelOrderTraversal {
 
                 // Add left child to the queue
                 if (node.left != null)
-                    queue.offer(node.left);
+                    queue.add(node.left);
 
                 // Add right child to the queue
                 if (node.right != null)
-                    queue.offer(node.right);
+                    queue.add(node.right);
             }
 
             // Store the completed level
