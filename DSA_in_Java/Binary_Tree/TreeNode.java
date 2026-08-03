@@ -7,19 +7,19 @@ Each node contains:
 2. Reference to the left child
 3. Reference to the right child
 */
-class TreeNode {
+public class TreeNode {
 
     // Data stored inside the node
-    int value;
+    public int value;
 
     // Reference to the left child
-    TreeNode left;
+    public TreeNode left;
 
     // Reference to the right child
-    TreeNode right;
+    public TreeNode right;
 
     // Constructor to initialize a node
-    TreeNode(int value) {
+    public TreeNode(int value) {
 
         // Store the passed value into the current object's value
         this.value = value;
