@@ -26,7 +26,8 @@ public class PreOrderTraversal {
         return result;
     }
 
-    // Helper method for recursion
+    // Recursive helper method for inorder traversal
+    // PreOrder order = Root -> Left -> Right
     private static void preorder(TreeNode root, List<Integer> result) {
 
         // Base case: stop if node is null
