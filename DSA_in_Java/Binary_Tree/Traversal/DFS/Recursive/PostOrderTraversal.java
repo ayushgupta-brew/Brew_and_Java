@@ -1,4 +1,4 @@
-package Binary_Tree.Traversal.DFS;
+package Binary_Tree.Traversal.DFS.Recursive;
 
 import Binary_Tree.TreeNode;
 

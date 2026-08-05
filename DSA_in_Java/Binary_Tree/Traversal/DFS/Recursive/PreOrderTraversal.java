@@ -1,4 +1,4 @@
-package Binary_Tree.Traversal.DFS;
+package Binary_Tree.Traversal.DFS.Recursive;
 
 import java.util.ArrayList;
 import java.util.List;
