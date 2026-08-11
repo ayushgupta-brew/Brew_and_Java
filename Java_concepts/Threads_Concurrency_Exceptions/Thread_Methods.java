@@ -15,7 +15,7 @@ package Threads_Concurrency_Exceptions;
  * 4. getName() / setName()
  *    Reads or changes the thread name.
  *
- * 5. getId()
+ * 5. threadId()
  *    Returns the unique thread id.
  *
  * 6. getPriority() / setPriority()
