@@ -16,7 +16,7 @@ public class Reverse_Stack {
         st.push(50);
 
         reverseStackUsingArrayList(st);
-        reverseStackUingStack(st);
+        reverseStackUsingStack(st);
     }
 
     public static void reverseStackUsingArrayList(Stack<Integer> st){
@@ -36,7 +36,7 @@ public class Reverse_Stack {
         System.out.println(st);
     }
 
-    public static void reverseStackUingStack(Stack<Integer> st){
+    public static void reverseStackUsingStack(Stack<Integer> st){
 
         // Temporary stack used to reverse the order
         Stack<Integer> temp = new Stack<>();
