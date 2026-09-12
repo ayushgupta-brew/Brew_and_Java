@@ -15,11 +15,11 @@ public class Reverse_Stack {
         st.push(40);
         st.push(50);
 
-        reverseStackUingArrayList(st);
+        reverseStackUsingArrayList(st);
         reverseStackUingStack(st);
     }
 
-    public static void reverseStackUingArrayList(Stack<Integer> st){
+    public static void reverseStackUsingArrayList(Stack<Integer> st){
 
         // Stores popped elements in reverse order
         ArrayList<Integer> list= new ArrayList<>();
